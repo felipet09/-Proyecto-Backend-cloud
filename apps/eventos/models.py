@@ -29,11 +29,11 @@ class Evento(models.Model):
     id = models.AutoField(primary_key = True)
     nombre = models.CharField(max_length = 200, blank=False, null=False)
     lugar = models.CharField(max_length = 200, blank=False, null=False)
-    Direccion = models.CharField(max_length = 200, blank=False, null=False)
+    direccion = models.CharField(max_length = 200, blank=False, null=False)
     fecha_inicio = models.DateField(null=True, blank=True)
     fecha_final = models.DateField(null=True, blank=True)
-    id_categoria = models.OneToOneField(Categoria, on_delete=models.CASCADE)
-    tipo_evento = models.OneToOneField(Tipo, on_delete=models.CASCADE)
+    id_categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+#    id_evento = models.ForeignKey(Tipo, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Evento'

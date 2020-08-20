@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+Listado de eventos
+{% endblock titulo %}
+
+{% block body %}
+    
+    {% if eventos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Lugar</th>
+                    <th>Direccion</th>
+                    <th>Fecha inicio</th>
+                    <th>Fecha fin</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventos %}
+                    <tr>
+                        <td>{{ evento.id }}</td>
+                        <td>{{ evento.nombre }}</td>
+                        <td>{{ evento.lugar }}</td>
+                        <td>{{ evento.direccion }}</td>
+                        <td>{{ evento.fecha_inicio }}</td>
+                        <td>{{ evento.fecha_final }}</td>
+                        <td>{{ evento.id_categoria }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h1>No existen eventos</h1>
+    {% endif %}
+
+{% endblock body %}
