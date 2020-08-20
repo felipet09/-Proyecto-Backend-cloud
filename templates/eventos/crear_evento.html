@@ -7,7 +7,29 @@ Creacion de eventos
 {% block body %}
     <form method="POST">
         {% csrf_token %}
-        {{evento_form.as_p}}
-        <button type = "submit">Crear</button>
+        {% if error %}
+            <h1>{{ error }}</h1>
+        {% else %}
+<!--            {{evento_form.as_p}}-->
+            <label>Nombre del evento</label>
+            <input type="text" name="nombre">
+
+            <label>Lugar del evento</label>
+            <input type="text" name="lugar">
+
+            <label>Dirección del evento</label>
+            <input type="text" name="direccion">
+
+            <label>Fecha de inicio</label>
+            <input type="text" name="fecha_inicio">
+
+            <label>Fecha fin</label>
+            <input type="text" name="fecha_final">
+
+            <label>Categoria</label>
+            <input type="text" name="id_categoria">
+
+            <button type = "submit">Enviar</button>
+        {% endif %}
     </form>
 {% endblock body %}
